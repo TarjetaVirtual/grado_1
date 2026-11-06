@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#27331f">
+    <meta property="og:title" content="Mi Graduación · Generación 2027">
+    <meta property="og:description" content="Estás invitado a celebrar mi graduación.">
+    <meta property="og:image" content="sobre.jpg">
+    <title>Mi Graduación · Generación 2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --verde: #4d6143;
+            --sage: #7d8f6f;
+            --tinta: #4a493b;
+            --oro: #b8913f;
+            --script: 'Pinyon Script', 'Brush Script MT', cursive;
+            --serif: 'Cinzel', Georgia, serif;
+            --cuerpo: 'Cormorant Garamond', Georgia, serif;
+            --foil: linear-gradient(100deg, #9a7730 0%, #e6cb84 30%, #b8913f 55%, #e8d089 80%, #a8843f 100%)
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%
+        }
+
+        body {
+            background: #2f3f28;
+            font-family: var(--cuerpo);
+            font-size: 1.08rem;
+            color: var(--tinta);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+            padding: 14px 10px
+        }
+
+        /* En celular la tarjeta ocupa todo el ancho, sin marco verde */
+        @media (max-width:520px) {
+            body {
+                padding: 0;
+                background: #f6f1e3
+            }
+
+            .invitacion {
+                max-width: none;
+                box-shadow: none
+            }
+        }
+
+        /* ===== TARJETA ===== */
+        .invitacion {
+            width: 100%;
+            max-width: 460px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(#fffef9, #f6f1e3 60%, #f1ebd9);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .4)
+        }
+
+        .invitacion::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            bottom: 12px;
+            left: 12px;
+            border: 1.5px solid #c9a95c;
+            pointer-events: none;
+            z-index: 6
+        }
+
+        .invitacion::after {
+            content: "";
+            position: absolute;
+            top: 19px;
+            right: 19px;
+            bottom: 19px;
+            left: 19px;
+            border: 1px solid rgba(90, 80, 50, .14);
+            pointer-events: none;
+            z-index: 6
+        }
+
+        section {
+            position: relative;
+            text-align: center;
+            padding: 36px 32px
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-weight: 400
+        }
+
+        .script,
+        .evento h3,
+        .itin h3,
+        .regalo h3,
+        .vestimenta h3,
+        .nombres .n,
+        .nombres .amp,
+        .fecha-grande .num,
+        .arco .mes,
+        .arco h2,
+        .gracias b {
+            color: var(--oro);
+            background: var(--foil);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .script {
+            font-family: var(--script);
+            font-size: 2.5rem;
+            line-height: 1.15
+        }
+
+        .itin h3 small {
+            -webkit-text-fill-color: #7d7a66;
+            color: #7d7a66
+        }
+
+        .orn {
+            height: 16px;
+            margin: 12px auto;
+            width: 58%;
+            position: relative
+        }
+
+        .orn::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #b8913f, transparent)
+        }
+
+        .orn::after {
+            content: "◆";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #f6f1e3;
+            padding: 0 9px;
+            color: #b8913f;
+            font-size: .55rem
+        }
+
+        /* ===== FOTOS ===== */
+        .foto {
+            width: 100%;
+            background-size: cover;
+            background-position: center top;
+            background-color: #b9c6ad;
+            position: relative;
+            overflow: hidden
+        }
+
+        .foto span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: italic .95rem var(--cuerpo);
+            color: #fff
+        }
+
+        .foto.tiene span {
+            display: none
+        }
+
+        .hero-wrap {
+            position: relative;
+            margin: 34px 30px 0;
+            z-index: 3
+        }
+
+        .hero {
+            height: 410px;
+            border: 9px solid #fffdf7;
+            box-shadow: 0 6px 14px rgba(40, 50, 30, .3)
+        }
+
+        /* sello de cera */
+        .sello-cera {
+            position: absolute;
+            left: 50%;
+            bottom: -44px;
+            margin-left: -44px;
+            width: 88px;
+            height: 88px;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 52% 48% 50% 50%/49% 53% 47% 51%;
+            background: radial-gradient(circle at 34% 28%, #7f9a72, #4b6342 58%, #2c3d26);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .4)
+        }
+
+        .sello-cera::before {
+            content: "";
+            position: absolute;
+            top: 9px;
+            right: 9px;
+            bottom: 9px;
+            left: 9px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 0, 0, .22)
+        }
+
+        .sello-cera span {
+            position: relative;
+            font: 1.9rem/1 var(--script);
+            color: #8fa882
+        }
+
+        .sello-cera.est {
+            position: relative;
+            left: auto;
+            bottom: auto;
+            margin: 0 auto 18px
+        }
+
+        .portada {
+            padding-top: 66px
+        }
+
+        .portada .xv {
+            font: .78rem var(--serif);
+            letter-spacing: .42em;
+            color: var(--verde);
+            margin-bottom: 4px;
+            text-transform: uppercase
+        }
+
+        .nombres {
+            margin: 8px 0
+        }
+
+        .nombres .n {
+            display: block;
+            font-family: var(--script);
+            font-size: 4.6rem;
+            line-height: 1.15
+        }
+
+        .nombres .amp {
+            display: block;
+            font: italic 1.5rem var(--cuerpo);
+            margin-top: 4px
+        }
+
+        .cita {
+            font-style: italic;
+            font-size: 1.12rem;
+            line-height: 1.65;
+            margin: 22px 14px 0
+        }
+
+        .cita small {
+            display: block;
+            font: normal .7rem var(--serif);
+            letter-spacing: .2em;
+            color: var(--verde);
+            margin-top: 8px
+        }
+
+        .bendicion {
+            font-size: .98rem;
+            letter-spacing: .03em;
+            line-height: 1.8;
+            margin: 22px 6px 0;
+            color: #6a6b58
+        }
+
+        .ovalo {
+            width: 250px;
+            height: 310px;
+            margin: 34px auto 0;
+            border-radius: 50%;
+            border: 3px solid #c9a95c;
+            background: #fdfbf3;
+            padding: 9px;
+            box-shadow: 0 6px 14px rgba(60, 50, 20, .22)
+        }
+
+        .ovalo .foto {
+            height: 100%;
+            border-radius: 50%
+        }
+
+        /* reproductor + vinilo */
+        .player {
+            margin-top: 38px
+        }
+
+        .player h4 {
+            font: 400 .74rem var(--serif);
+            letter-spacing: .24em;
+            color: #5a5a48
+        }
+
+        .barra {
+            height: 4px;
+            background: #d8d2bf;
+            border-radius: 3px;
+            margin: 14px auto 12px;
+            width: 80%;
+            position: relative;
+            cursor: pointer
+        }
+
+        .barra i {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: #c9a95c;
+            border-radius: 3px
+        }
+
+        .ctrl {
+            color: #777;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: .9rem
+        }
+
+        .ctrl>* {
+            margin: 0 11px
+        }
+
+        .play {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--foil);
+            color: #fff;
+            border: 0;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(80, 60, 10, .4)
+        }
+
+        .vinilo-box {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px
+        }
+
+        .vinilo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 10px;
+            background: radial-gradient(circle, transparent 0 34%, #000 34.5% 35%, transparent 35.5% 52%, #000 52.5% 53%, transparent 53.5% 68%, #000 68.5% 69%, transparent 69.5%), #151515;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .45);
+            position: relative;
+            will-change: transform;
+            -webkit-animation: gira 4s linear infinite;
+            animation: gira 4s linear infinite;
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused
+        }
+
+        .vinilo .label {
+            position: absolute;
+            top: 60px;
+            right: 60px;
+            bottom: 60px;
+            left: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #f0dca0, #b8913f 70%);
+            color: #3b3010;
+            font: 1rem/1 var(--script);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center
+        }
+
+        .vinilo.suena {
+            -webkit-animation-play-state: running;
+            animation-play-state: running
+        }
+
+        @-webkit-keyframes gira {
+            to {
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @keyframes gira {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .aguja {
+            position: absolute;
+            right: -6px;
+            top: -2px;
+            width: 8px;
+            height: 110px;
+            background: #bbb;
+            border-radius: 4px;
+            transform-origin: top center;
+            transform: rotate(-25deg);
+            transition: transform .6s ease
+        }
+
+        .aguja::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: -4px;
+            width: 16px;
+            height: 14px;
+            background: #555;
+            border-radius: 3px
+        }
+
+        .aguja.on {
+            transform: rotate(8deg)
+        }
+
+        /* botones */
+        .btn {
+            display: inline-block;
+            background: var(--foil);
+            color: #3a3114;
+            text-decoration: none;
+            border: 0;
+            padding: 10px 28px;
+            border-radius: 2px;
+            font: 600 .68rem var(--serif);
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(80, 60, 10, .3)
+        }
+
+        .btn-sec {
+            background: transparent;
+            box-shadow: none;
+            color: var(--verde);
+            border: 1px solid #b8913f;
+            margin-top: 16px
+        }
+
+        .padres {
+            font-size: 1.05rem;
+            line-height: 1.6
+        }
+
+        .padres b {
+            font: 600 .78rem var(--serif);
+            letter-spacing: .2em;
+            color: #3e3d2f;
+            display: block;
+            margin-top: 18px
+        }
+
+        .padres small {
+            display: block;
+            color: var(--verde);
+            letter-spacing: .14em;
+            font: .82rem var(--serif);
+            margin-top: 2px
+        }
+
+        .padres .y {
+            color: #b8913f;
+            font-style: italic
+        }
+
+        /* ===== CARTULINA VERDE ===== */
+        .arco {
+            text-align: center;
+            margin: 22px 22px 0;
+            border-radius: 200px 200px 6px 6px;
+            padding: 64px 24px 42px;
+            color: #efe9d6;
+            background: linear-gradient(165deg, #4f6445, #2c3b26);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, .35), inset 0 0 0 1px rgba(214, 185, 110, .65), inset 0 0 0 7px #3a4d33, inset 0 0 0 8px rgba(214, 185, 110, .35)
+        }
+
+        .arco .mes {
+            letter-spacing: .3em;
+            font: .82rem var(--serif);
+            margin-bottom: 10px
+        }
+
+        .fecha-grande {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 6px
+        }
+
+        .fecha-grande>* {
+            margin: 0 6px
+        }
+
+        .fecha-grande .num {
+            font-family: var(--script);
+            font-size: 4rem;
+            line-height: 1.1
+        }
+
+        .fecha-grande span {
+            font: .78rem var(--serif);
+            letter-spacing: .16em;
+            border-top: 1px solid #c9a95c;
+            border-bottom: 1px solid #c9a95c;
+            padding: 4px 9px;
+            color: #efe9d6
+        }
+
+        .arco h2 {
+            font-family: var(--script);
+            font-size: 2.5rem;
+            margin: 30px 0 4px
+        }
+
+        .cal {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            font: .88rem var(--serif);
+            margin-top: 8px
+        }
+
+        .cal>div {
+            text-align: center;
+            line-height: 38px
+        }
+
+        .cal .d {
+            font-size: .6rem;
+            letter-spacing: .1em;
+            color: #d9c486
+        }
+
+        .cal .hoy {
+            position: relative;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .cal .hoy::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -18px 0 0 -18px;
+            width: 36px;
+            height: 36px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 42S5 30 5 17a9.500 9.500 0 0119-3 9.500 9.500 0 0119 3c0 13-19 25-19 25z' fill='none' stroke='%23e8cf8e' stroke-width='2.500'/%3E%3C/svg%3E") center/contain no-repeat
+        }
+
+        .cal .hoy b {
+            position: relative;
+            z-index: 1
+        }
+
+        .cuenta {
+            padding-bottom: 10px
+        }
+
+        .cuenta .script {
+            font-size: 1.8rem
+        }
+
+        .reloj {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 14px;
+            margin-top: 8px;
+            border-radius: 3px;
+            border: 1px solid #cdbf98;
+            background: #f3edda
+        }
+
+        .reloj div {
+            font: 600 1.6rem var(--serif);
+            color: #5a5a46;
+            min-width: 40px;
+            margin: 0 3px
+        }
+
+        .reloj div small {
+            display: block;
+            font-size: .46rem;
+            letter-spacing: .14em;
+            color: #8a876f
+        }
+
+        .reloj .s {
+            font-size: 1.5rem;
+            color: #b8913f
+        }
+
+        /* ===== COLLAGE ===== */
+        .collage {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 12px;
+            gap: 12px;
+            padding: 40px 30px;
+            height: 460px
+        }
+
+        .collage .foto {
+            height: 100%;
+            border: 7px solid #fffdf7;
+            box-shadow: 0 4px 10px rgba(40, 50, 30, .25)
+        }
+
+        .collage .c1 {
+            grid-row: 1/3;
+            border-radius: 140px 140px 3px 3px
+        }
+
+        .collage .c2 {
+            border-radius: 80px 80px 3px 3px
+        }
+
+        .collage .c3 {
+            border-radius: 3px 3px 80px 80px
+        }
+
+        /* eventos */
+        .evento {
+            padding: 32px 26px 10px
+        }
+
+        .ico {
+            font-size: 2.8rem !important;
+            line-height: 1;
+            display: block;
+            margin-bottom: 6px !important
+        }
+
+        .ic {
+            width: 1em;
+            height: 1em;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: -.14em;
+            flex: none
+        }
+
+        .ico .ic,
+        .fila .i .ic,
+        .vestimenta .ic,
+        .regalo .box .ic {
+            stroke: #b8913f
+        }
+
+        .evento h3 {
+            font-family: var(--script);
+            font-size: 2.4rem
+        }
+
+        .hora {
+            font: 600 1.05rem var(--serif);
+            letter-spacing: .14em;
+            margin: 4px 0;
+            color: #3e3d2f
+        }
+
+        .lugar {
+            font: .86rem/1.5 var(--serif);
+            letter-spacing: .08em;
+            text-transform: uppercase
+        }
+
+        .dir {
+            font-size: 1rem;
+            font-style: italic;
+            margin: 4px 0 14px;
+            color: #6a6b58
+        }
+
+        .btn .ic {
+            margin-right: 5px;
+            font-size: 1.1em;
+            stroke: currentColor
+        }
+
+        /* itinerario */
+        .itin h3 {
+            font-family: var(--script);
+            font-size: 2.4rem
+        }
+
+        .itin h3 small {
+            display: block;
+            font: .7rem var(--serif);
+            letter-spacing: .26em;
+            margin-bottom: 2px
+        }
+
+        .linea {
+            position: relative;
+            margin: 22px auto 0;
+            max-width: 300px
+        }
+
+        .linea::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 10px;
+            bottom: 10px;
+            width: 1.5px;
+            background: #c9a95c;
+            margin-left: -1px
+        }
+
+        .fila {
+            display: grid;
+            grid-template-columns: 1fr 36px 1fr;
+            align-items: center;
+            margin-bottom: 24px
+        }
+
+        .fila .t {
+            font: .68rem/1.45 var(--serif);
+            letter-spacing: .1em
+        }
+
+        .fila .t em {
+            display: block;
+            font: italic .95rem var(--cuerpo);
+            letter-spacing: 0;
+            color: #8a876f
+        }
+
+        .fila .i {
+            font-size: 1.9rem !important
+        }
+
+        .fila .p {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #b8913f;
+            margin: auto;
+            box-shadow: 0 0 0 4px #f6f1e3
+        }
+
+        .fila:nth-child(odd) .t {
+            text-align: right;
+            grid-column: 1;
+            grid-row: 1
+        }
+
+        .fila:nth-child(odd) .p {
+            grid-column: 2;
+            grid-row: 1
+        }
+
+        .fila:nth-child(odd) .i {
+            grid-column: 3;
+            grid-row: 1;
+            text-align: left
+        }
+
+        .fila:nth-child(even) .t {
+            text-align: left;
+            grid-column: 3;
+            grid-row: 1
+        }
+
+        .fila:nth-child(even) .p {
+            grid-column: 2;
+            grid-row: 1
+        }
+
+        .fila:nth-child(even) .i {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: right
+        }
+
+        /* vestimenta */
+        .vestimenta h3,
+        .regalo h3 {
+            font-family: var(--script);
+            font-size: 2.4rem
+        }
+
+        .vestimenta .formal {
+            font: 600 .95rem var(--serif);
+            letter-spacing: .34em;
+            color: #3e3d2f;
+            margin: 4px 0 8px
+        }
+
+        .vestimenta p {
+            font-size: 1.02rem;
+            line-height: 1.55;
+            padding: 0 8px;
+            margin-top: 10px
+        }
+
+        .vestimenta .pares {
+            font-size: 4.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin: 6px 0 4px
+        }
+
+        .vestimenta .pares>* {
+            margin: 0 11px
+        }
+
+        .vestimenta figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        .vestimenta .ic {
+            stroke-width: 1.2
+        }
+
+        .vestimenta figcaption {
+            font: .62rem var(--serif);
+            letter-spacing: .24em;
+            color: #7d7a66;
+            text-transform: uppercase;
+            margin-top: 6px
+        }
+
+        .vestimenta .sep {
+            width: 1px;
+            height: 70px;
+            background: #c9a95c;
+            align-self: center
+        }
+
+        /* regalo / confirmación */
+        .regalo .box {
+            font-size: 2.7rem !important;
+            line-height: 1
+        }
+
+        .regalo p {
+            font-size: 1.02rem;
+            line-height: 1.55;
+            margin: 6px 0
+        }
+
+        .tienda {
+            margin: 16px 0 12px;
+            font: 600 .8rem var(--serif);
+            letter-spacing: .2em;
+            color: #3e3d2f
+        }
+
+        .tienda small {
+            display: block;
+            font: 1rem var(--cuerpo);
+            letter-spacing: .03em;
+            color: #6a6b58;
+            line-height: 1.7;
+            margin-top: 6px
+        }
+
+        .nota {
+            margin-top: 24px;
+            padding: 16px 18px;
+            border: 1px solid #c9a95c;
+            font-size: .98rem;
+            line-height: 1.55;
+            background: rgba(255, 255, 255, .35)
+        }
+
+        .nota b {
+            display: block;
+            font: .68rem var(--serif);
+            letter-spacing: .26em;
+            color: var(--verde);
+            margin-bottom: 4px
+        }
+
+        .gracias {
+            font: .74rem var(--serif);
+            letter-spacing: .14em;
+            margin-top: 6px;
+            text-transform: uppercase
+        }
+
+        .gracias b {
+            display: block;
+            font: 400 2.2rem/1.3 var(--script);
+            text-transform: none;
+            letter-spacing: 0;
+            margin-top: 6px
+        }
+
+        /* QR */
+        .qr-sec p {
+            font-size: 1.02rem;
+            line-height: 1.55;
+            margin: 6px 0 14px
+        }
+
+        .qr {
+            width: 176px;
+            height: 176px;
+            margin: 0 auto 16px;
+            background: #fffdf7;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font: italic .85rem var(--cuerpo);
+            color: #999;
+            overflow: hidden;
+            outline: 1px solid #c9a95c;
+            outline-offset: -6px
+        }
+
+        .qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain
+        }
+
+        .subidas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 8px;
+            gap: 8px;
+            margin-top: 16px
+        }
+
+        .subidas img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border: 4px solid #fffdf7
+        }
+
+        .final {
+            width: calc(100% - 60px);
+            margin: 10px auto 34px;
+            height: 400px;
+            border: 9px solid #fffdf7;
+            box-shadow: 0 6px 14px rgba(40, 50, 30, .3)
+        }
+
+        /* modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(20, 30, 16, .7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 150;
+            padding: 20px
+        }
+
+        .modal.ver {
+            display: flex
+        }
+
+        .modal>div {
+            background: #fbf8ee;
+            border: 1.5px solid #c9a95c;
+            padding: 32px 26px;
+            max-width: 340px;
+            width: 100%;
+            text-align: center
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 11px;
+            margin: 16px 0;
+            border: 1px solid #d8cfae;
+            border-radius: 2px;
+            font: inherit;
+            background: #fffef9
+        }
+
+        /* aparición */
+        .rev {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s ease, transform .6s ease
+        }
+
+        .rev.in {
+            opacity: 1;
+            transform: none
+        }
+
+        /* ===== PORTADA ===== */
+        body.bloq {
+            overflow: hidden;
+            height: 100vh;
+            height: 100dvh
+        }
+
+        .intro {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: #1f2a19 url('sobre.jpg') center/cover no-repeat;
+            transition: opacity .5s ease
+        }
+
+        .intro.fuera {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        .intro .sobre-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block
+        }
+
+        .intro .nombres-fb {
+            display: none;
+            font: 4rem/1.1 var(--script);
+            text-align: center;
+            color: #f8e8b2
+        }
+
+        .intro.falta .sobre-img {
+            display: none
+        }
+
+        .intro.falta .nombres-fb {
+            display: block
+        }
+
+        .intro .abrir {
+            position: absolute;
+            left: 50%;
+            bottom: 7%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            padding: 12px 26px;
+            border: 1px solid #d9bb6c;
+            border-radius: 40px;
+            color: #f8e8b2;
+            font: 600 .8rem var(--serif);
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            background: rgba(25, 36, 20, .8)
+        }
+
+        /* galería */
+        .gal-sec {
+            padding: 36px 0 30px
+        }
+
+        .gal-txt {
+            font-size: 1.02rem;
+            margin: 2px 0 18px;
+            font-style: italic
+        }
+
+        .cover {
+            position: relative;
+            height: 370px;
+            touch-action: pan-y;
+            overflow: hidden
+        }
+
+        .cover .slide {
+            position: absolute;
+            left: 19%;
+            top: 0;
+            width: 62%;
+            height: 100%;
+            transition: transform .45s ease, opacity .45s ease;
+            cursor: pointer;
+            border: 8px solid #fffdf7;
+            box-shadow: 0 5px 12px rgba(40, 50, 30, .3);
+            background-size: cover;
+            background-position: center
+        }
+
+        .gal-ctrl {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 18px 0 22px
+        }
+
+        .gal-ctrl>* {
+            margin: 0 8px
+        }
+
+        .gal-ctrl button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #b8913f;
+            background: transparent;
+            color: #a8843f;
+            cursor: pointer
+        }
+
+        .gal-ctrl button .ic {
+            font-size: .9rem;
+            fill: currentColor
+        }
+
+        .dots {
+            display: flex
+        }
+
+        .dots i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e2d6b0;
+            cursor: pointer;
+            margin: 0 4px
+        }
+
+        .dots i.on {
+            background: #b8913f
+        }
+
+        .marquee {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 6px 20px 14px
+        }
+
+        .track {
+            display: flex;
+            width: max-content
+        }
+
+        .track .mini {
+            width: 96px;
+            height: 124px;
+            border: 4px solid #fffdf7;
+            box-shadow: 0 3px 6px rgba(40, 50, 30, .25);
+            cursor: pointer;
+            flex: none;
+            margin-right: 12px;
+            background-size: cover;
+            background-position: center
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(15, 24, 12, .92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 140;
+            padding: 20px;
+            cursor: zoom-out
+        }
+
+        .lightbox.ver {
+            display: flex
+        }
+
+        .lb-img {
+            width: 92vw;
+            max-width: 420px;
+            height: 80vh;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: var(--sage);
+            border: 8px solid #fffdf7
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+
+            .rev {
+                opacity: 1;
+                transform: none
+            }
+        }
+    .intro .intro-titulo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%; /* Lo posiciona justo en la mitad vertical */
+    transform: translateY(-50%); /* Lo sube exactamente la mitad de su propio tamaño para un centrado perfecto */
+    text-align: center;
+    width: 100%;
+    font: 400 5.5rem/1.2 var(--script);
+    color: #f8e8b2;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, .65);
+}
+
+    </style>
+</head>
+
+<body class="bloq">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <symbol id="i-birrete" viewBox="0 0 48 48">
+                <path d="M24 9L3 19l21 10 21-10z" />
+                <path d="M12 24v9c0 3 5.500 6 12 6s12-3 12-6v-9" />
+                <path d="M42 20v13" />
+                <path d="M42 33l-2.500 6h5z" />
+            </symbol>
+            <symbol id="i-copas" viewBox="0 0 48 48">
+                <path d="M10 6h10l-1 12a4 4 0 01-8 0z" />
+                <path d="M15 22v16M9 40h12" />
+                <path d="M28 6h10l-1 12a4 4 0 01-8 0z" />
+                <path d="M33 22v16M27 40h12" />
+                <path d="M24 2v3M20 3l1 2M28 3l-1 2" />
+            </symbol>
+            <symbol id="i-cubiertos" viewBox="0 0 48 48">
+                <circle cx="24" cy="25" r="10" />
+                <circle cx="24" cy="25" r="6" />
+                <path d="M6 6v11a3 3 0 003 3v21M6 6v8M9 6v8M12 6v11a3 3 0 01-3 3" />
+                <path d="M42 6c-4 2-5 8-5 14h5v21M42 6v35" />
+            </symbol>
+            <symbol id="i-disco" viewBox="0 0 48 48">
+                <circle cx="24" cy="27" r="14" />
+                <path
+                    d="M24 4v9M10 27h28M24 13v28M12 19c7 3 17 3 24 0M12 35c7-3 17-3 24 0M17 15c-3 8-3 16 0 24M31 15c3 8 3 16 0 24" />
+            </symbol>
+            <symbol id="i-traje" viewBox="0 0 64 64">
+                <path d="M22 5L9 12l3 46h40l3-46-13-7" />
+                <path d="M22 5l10 15 10-15" />
+                <path d="M22 5l-3 24 13 18 13-18-3-24" />
+                <path d="M27 15l5 3 5-3v6l-5-3-5 3z" />
+                <circle cx="32" cy="18" r="1.8" />
+                <path d="M32 25v22M29.500 31h.1M29.500 38h.1M34.500 31h.1M34.500 38h.1" stroke-width="1.8" />
+                <path d="M42 36h7M42 36l1.500-3 2 2 2-2 1.500 3" stroke-width="1.1" />
+                <path d="M12 58v-8M52 58v-8" />
+            </symbol>
+            <symbol id="i-vestido" viewBox="0 0 64 64">
+                <path d="M25 4c0 6 3 9 7 11 4-2 7-5 7-11" />
+                <path d="M22 20c4-5 7 1 10-3 3 4 6-2 10 3l-4 15H26z" />
+                <path d="M26 35h12" />
+                <path d="M26 35C21 45 11 54 5 60h54c-6-6-16-15-21-25" />
+                <path
+                    d="M32 35v25M29 37c-2 9-8 17-14 23M35 37c2 9 8 17 14 23M26 36c-6 8-9 15-12 24M38 36c6 8 9 15 12 24"
+                    stroke-width="1.1" />
+                <path d="M26 28h12M28 22l1 13M36 22l-1 13" stroke-width="1" />
+                <path d="M50 8v6M47 11h6M12 14v5M9.500 16.500h5" stroke-width="1.1" />
+            </symbol>
+            <symbol id="i-regalo" viewBox="0 0 48 48">
+                <rect x="8" y="21" width="32" height="21" />
+                <rect x="5" y="14" width="38" height="7" />
+                <path d="M24 14v28M24 14c-4-9-13-7-10 0M24 14c4-9 13-7 10 0" />
+            </symbol>
+            <symbol id="i-calendario" viewBox="0 0 48 48">
+                <rect x="6" y="9" width="36" height="33" rx="3" />
+                <path d="M6 19h36M16 5v8M32 5v8M18 31l4 4 8-9" />
+            </symbol>
+            <symbol id="i-pin" viewBox="0 0 48 48">
+                <path d="M24 44S10 30 10 20a14 14 0 0128 0c0 10-14 24-14 24z" />
+                <circle cx="24" cy="20" r="5" />
+            </symbol>
+            <symbol id="i-camara" viewBox="0 0 48 48">
+                <path d="M5 16h10l3-5h12l3 5h10v26H5z" />
+                <circle cx="24" cy="28" r="8" />
+            </symbol>
+            <symbol id="i-subir" viewBox="0 0 48 48">
+                <path d="M24 32V7M14 17L24 7l10 10M7 33v9h34v-9" />
+            </symbol>
+            <symbol id="i-nota" viewBox="0 0 48 48">
+                <path d="M18 36V10l20-4v26" />
+                <circle cx="12" cy="37" r="6" />
+                <circle cx="32" cy="33" r="6" />
+            </symbol>
+            <symbol id="i-play" viewBox="0 0 48 48">
+                <path d="M15 8l25 16-25 16z" fill="currentColor" />
+            </symbol>
+            <symbol id="i-pausa" viewBox="0 0 48 48">
+                <path d="M14 8h6v32h-6zM28 8h6v32h-6z" fill="currentColor" stroke="none" />
+            </symbol>
+            <symbol id="i-prev" viewBox="0 0 48 48">
+                <path d="M10 8v32M38 8L16 24l22 16z" fill="currentColor" />
+            </symbol>
+            <symbol id="i-next" viewBox="0 0 48 48">
+                <path d="M38 8v32M10 8l22 16-22 16z" fill="currentColor" />
+            </symbol>
+            <symbol id="i-shuffle" viewBox="0 0 48 48">
+                <path
+                    d="M5 14h8c11 0 11 20 22 20h8M5 34h8c4 0 7-3 9-6M27 20c2-3 5-6 8-6h8M37 8l6 6-6 6M37 28l6 6-6 6" />
+            </symbol>
+            <symbol id="i-repeat" viewBox="0 0 48 48">
+                <path d="M9 22v-4a6 6 0 016-6h24M33 5l6 7-6 6M39 26v4a6 6 0 01-6 6H9M15 43l-6-7 6-6" />
+            </symbol>
+        </defs>
+    </svg>
+
+<!-- PORTADA -->
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="Abrir invitación">
+    <h2 class="intro-titulo">Mi graduación</h2>
+    <span class="abrir">Abrir invitación</span>
+</div>
+
+    <main class="invitacion">
+
+        <div class="hero-wrap">
+            <div class="foto hero" data-foto="1.jpg"><span>Tu foto principal</span></div>
+            <div class="sello-cera"><span>2027</span></div>
+        </div>
+
+        <section class="portada">
+            <p class="xv rev">Mi graduación</p>
+            <h1 class="nombres rev"><span class="n">Tu Nombre</span><span class="amp">Generación 2027</span></h1>
+            <div class="orn rev"></div>
+            <p class="cita rev">«Todo lo puedo en Cristo que me fortalece.»<small>FILIPENSES 4:13</small>
+            </p>
+            <p class="bendicion rev">Con gratitud a Dios y a mi familia, te invito a celebrar el final de una etapa
+                y el comienzo de un nuevo camino.</p>
+            <div class="ovalo rev">
+                <div class="foto" data-foto="2.jpg"><span>Foto 2</span></div>
+            </div>
+
+            <div class="player rev">
+                <div class="vinilo-box">
+                    <div class="vinilo" id="vinilo">
+                        <div class="label">2027</div>
+                    </div>
+                    <div class="aguja" id="aguja"></div>
+                </div>
+                <h4>DALE PLAY A MI CANCIÓN</h4>
+                <div class="barra" id="barra"><i id="prog"></i></div>
+                <div class="ctrl"><svg class="ic" aria-hidden="true">
+                        <use href="#i-shuffle" />
+                    </svg><svg class="ic" aria-hidden="true">
+                        <use href="#i-prev" />
+                    </svg><button class="play" id="play" aria-label="Reproducir música"><svg class="ic"
+                            aria-hidden="true">
+                            <use href="#i-play" />
+                        </svg></button><svg class="ic" aria-hidden="true">
+                        <use href="#i-next" />
+                    </svg><svg class="ic" aria-hidden="true">
+                        <use href="#i-repeat" />
+                    </svg></div>
+                <button class="btn btn-sec" id="sugMusica"><svg class="ic" aria-hidden="true">
+                        <use href="#i-nota" />
+                    </svg> Sugerir una canción</button>
+                <audio id="audio" src="musica.mp3" loop preload="none"></audio>
+            </div>
+        </section>
+
+        <section class="padres rev">
+            <p>Gracias a quienes me han acompañado en este camino:</p>
+            <div class="orn"></div>
+            <b>MIS PADRES</b>
+            <small>Nombre del padre</small><span class="y">&amp;</span><small>Nombre de la madre</small>
+            <b>MIS PADRINOS</b>
+            <small>Nombre del padrino</small><span class="y">&amp;</span><small>Nombre de la madrina</small>
+        </section>
+
+        <div class="arco rev">
+            <div class="mes" id="mes1"></div>
+            <div class="fecha-grande"><span id="diaSem"></span>
+                <div class="num" id="diaNum"></div><span id="anio"></span>
+            </div>
+            <h2>El Gran Día</h2>
+            <div class="mes" id="mes2" style="margin-top:6px"></div>
+            <div class="cal" id="cal"></div>
+        </div>
+
+        <section class="cuenta rev">
+            <p class="script">Sólo faltan</p>
+            <div class="reloj">
+                <div id="d">0<small>DÍAS</small></div><b class="s">:</b>
+                <div id="h">00<small>HORAS</small></div><b class="s">:</b>
+                <div id="m">00<small>MINUTOS</small></div><b class="s">:</b>
+                <div id="s">00<small>SEGUNDOS</small></div>
+            </div>
+        </section>
+
+        <section class="collage rev">
+            <div class="foto c1" data-foto="3.jpg"><span>Foto 3</span></div>
+            <div class="foto c2" data-foto="4.jpg"><span>Foto 4</span></div>
+            <div class="foto c3" data-foto="5.jpg"><span>Foto 5</span></div>
+        </section>
+
+        <section class="evento rev">
+            <span class="ico"><svg class="ic" aria-hidden="true">
+                    <use href="#i-birrete" />
+                </svg></span>
+            <h3>Ceremonia</h3>
+            <p class="hora">11:00 AM</p>
+            <p class="lugar">Nombre de la universidad o auditorio</p>
+            <p class="dir">Dirección del recinto</p>
+            <a class="btn" href="https://maps.google.com/?q=Tu+universidad" target="_blank" rel="noopener"><svg
+                    class="ic" aria-hidden="true">
+                    <use href="#i-pin" />
+                </svg> Ver ubicación</a>
+        </section>
+        <section class="evento rev">
+            <span class="ico"><svg class="ic" aria-hidden="true">
+                    <use href="#i-copas" />
+                </svg></span>
+            <h3>Celebración</h3>
+            <p class="hora">2:00 PM</p>
+            <p class="lugar">Nombre del salón</p>
+            <p class="dir">Dirección del salón</p>
+            <a class="btn" href="https://maps.google.com/?q=Tu+salon" target="_blank" rel="noopener"><svg class="ic"
+                    aria-hidden="true">
+                    <use href="#i-pin" />
+                </svg> Ver ubicación</a>
+        </section>
+
+        <section class="itin rev">
+            <h3><small>ITINERARIO</small>de actividades</h3>
+            <div class="linea">
+                <div class="fila">
+                    <div class="t">CEREMONIA DE<br>GRADUACIÓN<em>11:00 am</em></div>
+                    <div class="p"></div>
+                    <div class="i"><svg class="ic" aria-hidden="true">
+                            <use href="#i-birrete" />
+                        </svg></div>
+                </div>
+                <div class="fila">
+                    <div class="t">FOTOS<br>FAMILIARES<em>1:00 pm</em></div>
+                    <div class="p"></div>
+                    <div class="i"><svg class="ic" aria-hidden="true">
+                            <use href="#i-camara" />
+                        </svg></div>
+                </div>
+                <div class="fila">
+                    <div class="t">COMIDA<em>2:00 pm</em></div>
+                    <div class="p"></div>
+                    <div class="i"><svg class="ic" aria-hidden="true">
+                            <use href="#i-cubiertos" />
+                        </svg></div>
+                </div>
+                <div class="fila">
+                    <div class="t">BRINDIS<em>4:00 pm</em></div>
+                    <div class="p"></div>
+                    <div class="i"><svg class="ic" aria-hidden="true">
+                            <use href="#i-copas" />
+                        </svg></div>
+                </div>
+                <div class="fila">
+                    <div class="t">FIESTA<em>5:00 pm</em></div>
+                    <div class="p"></div>
+                    <div class="i"><svg class="ic" aria-hidden="true">
+                            <use href="#i-disco" />
+                        </svg></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="vestimenta rev">
+            <h3>Código de vestimenta</h3>
+            <p class="formal">FORMAL</p>
+            <div class="pares">
+                <figure><svg class="ic" aria-hidden="true">
+                        <use href="#i-traje" />
+                    </svg>
+                    <figcaption>Caballeros</figcaption>
+                </figure><i class="sep"></i>
+                <figure><svg class="ic" aria-hidden="true">
+                        <use href="#i-vestido" />
+                    </svg>
+                    <figcaption>Damas</figcaption>
+                </figure>
+            </div>
+            <p>Te pido con cariño vestir elegante para la ceremonia y la celebración. Los tonos verdes y tierra son
+                bienvenidos.</p>
+        </section>
+
+        <section class="gal-sec rev">
+            <h3 class="script">Galería</h3>
+            <p class="gal-txt">Momentos que quiero compartir contigo</p>
+            <div class="cover" id="cover" aria-roledescription="carrusel"></div>
+            <div class="gal-ctrl"><button id="gPrev" aria-label="Anterior"><svg class="ic">
+                        <use href="#i-prev" />
+                    </svg></button>
+                <div class="dots" id="dots"></div><button id="gNext" aria-label="Siguiente"><svg class="ic">
+                        <use href="#i-next" />
+                    </svg></button>
+            </div>
+            <div class="marquee">
+                <div class="track" id="track"></div>
+            </div>
+        </section>
+        <div class="lightbox" id="lightbox">
+            <div class="lb-img" id="lbImg"></div>
+        </div>
+
+        <section class="regalo rev">
+            <div class="box"><svg class="ic" aria-hidden="true">
+                    <use href="#i-regalo" />
+                </svg></div>
+            <h3>Sugerencia de regalo</h3>
+            <p>Tu presencia es mi mejor regalo. Si deseas tener un detalle conmigo, estas son las opciones:
+            </p>
+            <div class="tienda">TRANSFERENCIA<small>Banco: ________<br>A
+                    nombre de: ________</small></div>
+            <p>También recibo con mucho cariño un sobre el día del evento.</p>
+        </section>
+
+        <section class="regalo rev">
+            <div class="box"><svg class="ic" aria-hidden="true">
+                    <use href="#i-calendario" />
+                </svg></div>
+            <h3>Confirmación</h3>
+            <p>Agradezco que confirmes tu asistencia antes del <span id="limite"></span></p>
+            <button class="btn" id="confirmar">Confirmar aquí</button>
+            <div class="nota"><b>1 PASE DISPONIBLE</div>
+        </section>
+
+        <section class="qr-sec rev">
+            <span class="ico"><svg class="ic" aria-hidden="true">
+                    <use href="#i-camara" />
+                </svg></span>
+            <h3 class="script">Comparte tus fotos</h3>
+            <p>Escanea el código QR y sube las fotos y videos que captures durante mi graduación.</p>
+            <div class="qr"><img src="image.png" alt="Código QR para subir fotos" loading="lazy" decoding="async"
+                    onerror="this.replaceWith('Coloca aquí tu QR (image.png)')"></div>
+            <button class="btn" id="subir"><svg class="ic" aria-hidden="true">
+                    <use href="#i-subir" />
+                </svg> Subir fotos</button>
+            <input type="file" id="archivos" accept="image/*" multiple hidden>
+            <div class="subidas" id="subidas"></div>
+        </section>
+
+        <section class="rev" style="padding-top:14px">
+            <div class="sello-cera est"><span>2027</span></div>
+            <p class="gracias">Espero contar con tu presencia<b>¡Muchas gracias!</b></p>
+        </section>
+
+        <div class="foto final rev" data-foto="6.jpg"><span>Foto 6</span></div>
+    </main>
+
+    <div class="modal" id="modal">
+        <div>
+            <h3 class="script">Confirmar asistencia</h3>
+            <input id="nombreInv" placeholder="Tu nombre y # de personas">
+            <a class="btn" id="wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            <p style="margin-top:14px;font-size:.85rem;cursor:pointer" id="cerrar">Cerrar</p>
+        </div>
+    </div>
+    <div class="modal" id="modalMusica">
+        <div>
+            <h3 class="script">Sugiere una canción</h3>
+            <input id="cancion" placeholder="Canción y artista">
+            <a class="btn" id="waMus" href="#" target="_blank" rel="noopener">Enviar sugerencia</a>
+            <p style="margin-top:14px;font-size:.85rem;cursor:pointer" id="cerrarMus">Cerrar</p>
+        </div>
+    </div>
+
+    <script>
+        /* ===== AJUSTES ===== */
+        var FECHA_EVENTO = new Date('2027-01-16T11:00:00');
+        var WHATSAPP = '520000000000';
+        var NOMBRES = 'Tu Nombre';
+        var ALBUM_URL = '';
+
+        var $ = function (id) { return document.getElementById(id) };
+
+        /* Fotos: se cargan solo cuando se acercan a la pantalla */
+        var ioFoto = new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+                if (!e.isIntersecting) return;
+                ioFoto.unobserve(e.target);
+                var el = e.target, img = new Image();
+                img.onload = function () { el.style.backgroundImage = 'url(' + el.dataset.foto + ')'; el.classList.add('tiene') };
+                img.decoding = 'async';
+                img.src = el.dataset.foto;
+            });
+        }, { rootMargin: '250px' });
+        function cargar(el) { ioFoto.observe(el) }
+        document.querySelectorAll('[data-foto]').forEach(cargar);
+
+        /* Galería */
+        (function () {
+            var fotos = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+            var cover = $('cover'), dots = $('dots'), track = $('track');
+            var n = fotos.length, cur = 0, timer = null, visible = false;
+            var lb = $('lightbox');
+            function abrir(f) { $('lbImg').style.backgroundImage = 'url(' + f + ')'; lb.classList.add('ver') }
+            lb.onclick = function () { lb.classList.remove('ver') };
+
+            var slides = fotos.map(function (f, i) {
+                var d = document.createElement('div'); d.className = 'slide foto'; d.dataset.foto = f;
+                d.innerHTML = '<span>Foto ' + (i + 1) + '</span>'; cargar(d); cover.appendChild(d);
+                var dt = document.createElement('i'); dt.onclick = function () { ir(i); auto() }; dots.appendChild(dt);
+                d.onclick = function () { cur === i ? abrir(f) : (ir(i), auto()) };
+                return d;
+            });
+            fotos.forEach(function (f) {
+                var m = document.createElement('div'); m.className = 'mini foto'; m.dataset.foto = f; m.innerHTML = '<span></span>';
+                m.onclick = function () { abrir(f) }; cargar(m); track.appendChild(m);
+            });
+            function pinta() {
+                var h = Math.floor(n / 2);
+                slides.forEach(function (d, i) {
+                    var o = ((i - cur + n + h) % n) - h, a = Math.abs(o);
+                    d.style.transform = 'translateX(' + (o * 62) + '%) scale(' + (1 - a * .1) + ')';
+                    d.style.zIndex = 10 - a;
+                    d.style.opacity = a > 1 ? 0 : (a ? .75 : 1);
+                    d.style.visibility = a > 1 ? 'hidden' : 'visible';
+                });
+                for (var k = 0; k < dots.children.length; k++) dots.children[k].classList.toggle('on', k === cur);
+            }
+            function ir(i) { cur = (i + n) % n; pinta() }
+            function parar() { if (timer) { clearInterval(timer); timer = null } }
+            function auto() { parar(); if (visible && !document.hidden) timer = setInterval(function () { ir(cur + 1) }, 4000) }
+            $('gPrev').onclick = function () { ir(cur - 1); auto() };
+            $('gNext').onclick = function () { ir(cur + 1); auto() };
+            var x0 = null;
+            cover.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX }, { passive: true });
+            cover.addEventListener('touchend', function (e) {
+                if (x0 === null) return;
+                var dx = e.changedTouches[0].clientX - x0;
+                if (Math.abs(dx) > 40) { ir(cur + (dx < 0 ? 1 : -1)); auto() }
+                x0 = null;
+            }, { passive: true });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') lb.classList.remove('ver');
+            });
+            new IntersectionObserver(function (es) { visible = es[0].isIntersecting; auto() }).observe(cover);
+            document.addEventListener('visibilitychange', auto);
+            pinta();
+        })();
+
+        /* Fecha y calendario */
+        (function () {
+            var f = FECHA_EVENTO, mes = f.toLocaleDateString('es-MX', { month: 'long' }).toUpperCase();
+            function set(id, t) { $(id).textContent = t }
+            set('mes1', mes); set('mes2', mes + ' ' + f.getFullYear());
+            set('diaSem', f.toLocaleDateString('es-MX', { weekday: 'long' }).toUpperCase());
+            set('diaNum', f.getDate()); set('anio', f.getFullYear());
+            var lim = new Date(f); lim.setDate(lim.getDate() - 14);
+            set('limite', lim.toLocaleDateString('es-MX', { day: 'numeric', month: 'long' }));
+            var html = '';
+            ['LUN', 'MAR', 'MIE', 'JUE', 'VIE', 'SAB', 'DOM'].forEach(function (d) { html += '<div class="d">' + d + '</div>' });
+            var primero = (new Date(f.getFullYear(), f.getMonth(), 1).getDay() + 6) % 7;
+            for (var i = 0; i < primero; i++) html += '<div></div>';
+            var dias = new Date(f.getFullYear(), f.getMonth() + 1, 0).getDate();
+            for (var n = 1; n <= dias; n++) html += n === f.getDate() ? '<div class="hoy"><b>' + n + '</b></div>' : '<div>' + n + '</div>';
+            $('cal').innerHTML = html;
+        })();
+
+        /* Cuenta regresiva */
+        function pad(n) { return (n < 10 ? '0' : '') + n }
+        var rel = { d: $('d').firstChild, h: $('h').firstChild, m: $('m').firstChild, s: $('s').firstChild };
+        function tick() {
+            var t = Math.max(0, FECHA_EVENTO - new Date());
+            rel.d.textContent = Math.floor(t / 864e5); rel.h.textContent = pad(Math.floor(t / 36e5) % 24);
+            rel.m.textContent = pad(Math.floor(t / 6e4) % 60); rel.s.textContent = pad(Math.floor(t / 1e3) % 60);
+        }
+        var relTimer = null;
+        function relOn() { tick(); if (!relTimer) relTimer = setInterval(tick, 1000) }
+        function relOff() { clearInterval(relTimer); relTimer = null }
+        document.addEventListener('visibilitychange', function () { document.hidden ? relOff() : relOn() });
+        relOn();
+
+        /* Música */
+        var audio = $('audio'), play = $('play'), prog = $('prog'), vin = $('vinilo'), agu = $('aguja');
+        function estado(on) {
+            play.innerHTML = '<svg class="ic"><use href="#i-' + (on ? 'pausa' : 'play') + '"/></svg>';
+            vin.classList.toggle('suena', on); agu.classList.toggle('on', on);
+        }
+        play.onclick = function () {
+            if (audio.paused) { var p = audio.play(); if (p && p.catch) p.catch(function () { }); estado(true) }
+            else { audio.pause(); estado(false) }
+        };
+        audio.ontimeupdate = function () { prog.style.width = (audio.currentTime / (audio.duration || 1) * 100) + '%' };
+        $('barra').onclick = function (e) {
+            var r = e.currentTarget.getBoundingClientRect();
+            if (audio.duration) audio.currentTime = (e.clientX - r.left) / r.width * audio.duration;
+        };
+
+        /* Aparición al hacer scroll */
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) } });
+        }, { threshold: .1 });
+        document.querySelectorAll('.rev').forEach(function (el) { io.observe(el) });
+
+        /* Portada */
+        var intro = $('intro');
+        function abrirInv() {
+            if (intro.classList.contains('fuera')) return;
+            intro.classList.add('fuera');
+            document.body.classList.remove('bloq');
+            window.scrollTo(0, 0);
+            var p = audio.play();
+            if (p && p.then) p.then(function () { estado(true) }).catch(function () { });
+            setTimeout(function () { intro.style.display = 'none'; intro.style.backgroundImage = 'none' }, 700);
+        }
+        intro.onclick = abrirInv;
+        intro.onkeydown = function (e) { if (e.key === 'Enter' || e.key === ' ') abrirInv() };
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') document.querySelectorAll('.modal.ver').forEach(function (m) { m.classList.remove('ver') });
+        });
+
+        /* Subir fotos */
+        var inp = $('archivos');
+        $('subir').onclick = function () { ALBUM_URL ? window.open(ALBUM_URL, '_blank') : inp.click() };
+        inp.onchange = function () {
+            Array.prototype.forEach.call(inp.files, function (f) {
+                var im = document.createElement('img'); im.src = URL.createObjectURL(f); im.alt = 'Foto subida'; im.decoding = 'async';
+                $('subidas').appendChild(im);
+            });
+        };
+
+        /* Sugerir música por WhatsApp */
+        var mm = $('modalMusica');
+        $('sugMusica').onclick = function () { mm.classList.add('ver') };
+        $('cerrarMus').onclick = function () { mm.classList.remove('ver') };
+        $('waMus').onclick = function () {
+            var c = $('cancion').value || '';
+            this.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hola, para la graduación de ' + NOMBRES + ' te sugiero esta canción: ' + c);
+        };
+
+        /* Confirmación por WhatsApp */
+        var modal = $('modal');
+        $('confirmar').onclick = function () { modal.classList.add('ver') };
+        $('cerrar').onclick = function () { modal.classList.remove('ver') };
+        $('wa').onclick = function () {
+            var n = $('nombreInv').value || '';
+            this.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent('Hola, confirmo mi asistencia a la graduación de ' + NOMBRES + '. ' + n);
+        };
+    </script>
+</body>
+
+</html>
